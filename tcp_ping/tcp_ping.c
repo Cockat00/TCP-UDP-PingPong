@@ -144,19 +144,19 @@ int main(int argc, char **argv)
 
     /*** Write the request on socket ***/
 /*** TO BE DONE START ***/
-	nr = blocking_write_all(tcp_socket, (void *)request, strlen(request));
+	nr = blocking_write_all(tcp_socket, request, sizeof(request));
 	if (nr < 0)
 		fail_errno("TCP Ping could not send request to Pong server");
 /*** TO BE DONE END ***/
-
+	printf("[%s] - In uscita.\n", request);
 	nr = read(tcp_socket, answer, sizeof(answer));
 	if (nr < 0)
 		fail_errno("TCP Ping could not receive answer from Pong server");
 		
     /*** Check if the answer is OK, and fail if it is not ***/
 /*** TO BE DONE START ***/
-	if(strcmp("OK",answer) != 0){
-		printf("%s",(char *)answer);	
+	if(strcmp("OK\n",answer) != 0){
+		printf("[%s] - In entrata.\n", answer);	
 		fail_errno(" ... Pong server disagreed :-(\n");
 	}
 /*** TO BE DONE END ***/

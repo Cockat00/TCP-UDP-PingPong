@@ -104,14 +104,17 @@ int main(int argc, char **argv)
 	memset(&gai_hints, 0, sizeof gai_hints);
 
 /*** TO BE DONE START ***/
-
-
+	gai_hints.ai_family = AF_INET;
+	gai_hints.ai_socktype = SOCK_STREAM;
+	gai_hints.ai_protocol = IPPROTO_TCP;
+	//Non settiamo la flag in modo da renderla adatta a chiamate quali connect()
 /*** TO BE DONE END ***/
 
     /*** call getaddrinfo() in order to get Pong Server address in binary form ***/
 /*** TO BE DONE START ***/
-
-
+	gai_rv=getaddrinfo(argv[1],argv[2],&gai_hints,&server_addrinfo);
+	if(gai_rv != 0)
+		fail_errno("getaddrinfo() failed");
 /*** TO BE DONE END ***/
 
     /*** Print address of the Pong server before trying to connect ***/
@@ -120,7 +123,12 @@ int main(int argc, char **argv)
 
     /*** create a new TCP socket and connect it with the server ***/
 /*** TO BE DONE START ***/
+	tcp_socket=socket(server_addrinfo->ai_family,server_addrinfo->ai_socktype,server_addrinfo->ai_protocol);
+	if(tcp_socket == -1)
+		fail_errno("socket() failed");
 
+	if(connect(tcp_socket,server_addrinfo->ai_addr,server_addrinfo->ai_addrlen) == -1)
+		fail_errno("connect() failed");
 
 /*** TO BE DONE END ***/
 
@@ -136,19 +144,21 @@ int main(int argc, char **argv)
 
     /*** Write the request on socket ***/
 /*** TO BE DONE START ***/
-
-
+	nr = blocking_write_all(tcp_socket, (void *)request, strlen(request));
+	if (nr < 0)
+		fail_errno("TCP Ping could not send request to Pong server");
 /*** TO BE DONE END ***/
 
 	nr = read(tcp_socket, answer, sizeof(answer));
 	if (nr < 0)
 		fail_errno("TCP Ping could not receive answer from Pong server");
 		
-
     /*** Check if the answer is OK, and fail if it is not ***/
 /*** TO BE DONE START ***/
-
-
+	if(strcmp("OK",answer) != 0){
+		printf("%s",(char *)answer);	
+		fail_errno(" ... Pong server disagreed :-(\n");
+	}
 /*** TO BE DONE END ***/
 
     /*** else ***/

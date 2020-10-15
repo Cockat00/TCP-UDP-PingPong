@@ -289,6 +289,11 @@ void server_loop(int server_socket) {
 /*** TO BE DONE START ***/
 		if(request_socket == -1) fail_errno("accept() failed");
 
+		pid=fork();
+		if(pid == -1)
+			fail_errno("Couldn't fork child");
+		else if(pid == 0)
+			serve_client(request_socket,&client_addr);
 /*** TO BE DONE END ***/
 
 		if (close(request_socket))
@@ -314,14 +319,14 @@ int main(int argc, char **argv)
 		if(gai_rv != 0) 
 			fail_errno("getaddrinfo() failed\n");
 
-	server_socket=socket(AF_INET,SOCK_STREAM,IPPROTO_TCP);
+	server_socket=socket(server_addrinfo->ai_family,server_addrinfo->ai_socktype,server_addrinfo->ai_protocol);
 		if(server_socket == -1) 
 			fail_errno("socket() failed\n");
 
 	if(bind(server_socket,server_addrinfo->ai_addr,server_addrinfo->ai_addrlen) < 0) 
 		fail_errno("bind() failed");
 
-	if(listen(server_socket,5) < 0)
+	if(listen(server_socket,30) < 0)
 		fail_errno("listen() failed");
 /*** TO BE DONE END ***/
 

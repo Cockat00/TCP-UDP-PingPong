@@ -38,20 +38,22 @@ double do_ping(size_t msg_size, int msg_no, char message[msg_size], int tcp_sock
 
     /*** write msg_no at the beginning of the message buffer ***/
 /*** TO BE DONE START ***/
-
-
+       if(sprintf(message,"%d\n",msg_no) < 0)
+        	fail_errno("Can't write msg_no on the buffer");
 /*** TO BE DONE END ***/
 
     /*** Store the current time in send_time ***/
 /*** TO BE DONE START ***/
-
-
+        if(clock_getres(CLOCK_TYPE,&send_time) == -1)
+        	fail_errno("Couldn't retrieve current_time");
 /*** TO BE DONE END ***/
 
     /*** Send the message through the socket (blocking)  ***/
 /*** TO BE DONE START ***/
-	
-
+	sent_bytes = send(tcp_socket,message,msg_size,0);
+	if(sent_bytes == -1)
+		fail_errno("Error sending data");
+       
 /*** TO BE DONE END ***/
 
     /*** Receive answer through the socket (blocking) ***/
@@ -60,11 +62,10 @@ double do_ping(size_t msg_size, int msg_no, char message[msg_size], int tcp_sock
 		if (recv_bytes < 0)
 			fail_errno("Error receiving data");
 	}
-
     /*** Store the current time in recv_time ***/
 /*** TO BE DONE START ***/
-
-
+		if(clock_getres(CLOCK_TYPE,&recv_time) == -1)
+        	fail_errno("Couldn't retrieve current_time");
 /*** TO BE DONE END ***/
 
 	printf("tcp_ping received %zd bytes back\n", recv_bytes);
@@ -144,19 +145,19 @@ int main(int argc, char **argv)
 
     /*** Write the request on socket ***/
 /*** TO BE DONE START ***/
-	nr = blocking_write_all(tcp_socket, request, sizeof(request));
+	nr = write(tcp_socket, request, strlen(request));
 	if (nr < 0)
 		fail_errno("TCP Ping could not send request to Pong server");
 /*** TO BE DONE END ***/
-	printf("[%s] - In uscita.\n", request);
+
 	nr = read(tcp_socket, answer, sizeof(answer));
 	if (nr < 0)
 		fail_errno("TCP Ping could not receive answer from Pong server");
 		
     /*** Check if the answer is OK, and fail if it is not ***/
 /*** TO BE DONE START ***/
-	if(strcmp("OK\n",answer) != 0){
-		printf("[%s] - In entrata.\n", answer);	
+	char *ok_msg = "OK\n";
+	if(strncmp(ok_msg,answer,strlen(ok_msg)) != 0){	
 		fail_errno(" ... Pong server disagreed :-(\n");
 	}
 /*** TO BE DONE END ***/

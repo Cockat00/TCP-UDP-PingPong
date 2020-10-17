@@ -44,7 +44,7 @@ double do_ping(size_t msg_size, int msg_no, char message[msg_size], int tcp_sock
 
     /*** Store the current time in send_time ***/
 /*** TO BE DONE START ***/
-        if(clock_getres(CLOCK_TYPE,&send_time) == -1)
+        if(clock_gettime(CLOCK_TYPE,&send_time) == -1)
         	fail_errno("Couldn't retrieve current_time");
 /*** TO BE DONE END ***/
 
@@ -64,7 +64,7 @@ double do_ping(size_t msg_size, int msg_no, char message[msg_size], int tcp_sock
 	}
     /*** Store the current time in recv_time ***/
 /*** TO BE DONE START ***/
-		if(clock_getres(CLOCK_TYPE,&recv_time) == -1)
+		if(clock_gettime(CLOCK_TYPE,&recv_time) == -1)
         	fail_errno("Couldn't retrieve current_time");
 /*** TO BE DONE END ***/
 

@@ -115,7 +115,7 @@ int main(int argc, char **argv)
 /*** TO BE DONE START ***/
 	gai_rv=getaddrinfo(argv[1],argv[2],&gai_hints,&server_addrinfo);
 	if(gai_rv != 0)
-		fail_errno("getaddrinfo() failed");
+		fail(gai_strerror(gai_rv));
 /*** TO BE DONE END ***/
 
     /*** Print address of the Pong server before trying to connect ***/
@@ -145,8 +145,8 @@ int main(int argc, char **argv)
 
     /*** Write the request on socket ***/
 /*** TO BE DONE START ***/
-	nr = write(tcp_socket, request, strlen(request));
-	if (nr < 0)
+	nr = blocking_write_all(tcp_socket, request, strlen(request));
+		if (nr < 0)
 		fail_errno("TCP Ping could not send request to Pong server");
 /*** TO BE DONE END ***/
 

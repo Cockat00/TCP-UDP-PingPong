@@ -50,8 +50,8 @@ void tcp_pong(int message_no, size_t message_size, FILE *in_stream, int out_sock
 
                 /*** get time-stamp time2 from the clock ***/
 /*** TO BE DONE START ***/
-
-
+		if(clock_gettime(CLOCK_TYPE,&time2) == -1)
+			fail_errno("Can't get time-stamp from the clock");
 /*** TO BE DONE END ***/
 
 
@@ -63,8 +63,8 @@ void tcp_pong(int message_no, size_t message_size, FILE *in_stream, int out_sock
 
                 /*** get time-stamp time3 from the clock ***/
 /*** TO BE DONE START ***/
-
-
+		if(clock_gettime(CLOCK_TYPE,&time3) == -1)
+			fail_errno("Can't get time-stamp from the clock");
 /*** TO BE DONE END ***/
 
                 sprintf(buffer,"%ld %ld, %ld %ld\n", (long)time2.tv_sec, time2.tv_nsec,
@@ -286,14 +286,20 @@ void server_loop(int server_socket) {
 
 /*** check for possible accept() errors, and if connection was correctly
      establised fork() and have the child process call serve_client() ***/
-/*** TO BE DONE START ***/
-		if(request_socket == -1) fail_errno("accept() failed");
+/*** TO BE DONE START ***/ 
+
+		if(request_socket == -1){
+			if(errno == EINTR) continue;
+
+			close(server_socket);
+			fail_errno("accept() failed");
+		} 
 
 		pid=fork();
 		if(pid == -1)
 			fail_errno("Couldn't fork child");
-		else if(pid == 0)
-			serve_client(request_socket,&client_addr);
+		else if (pid == 0)
+				serve_client(request_socket,&client_addr);
 /*** TO BE DONE END ***/
 
 		if (close(request_socket))
@@ -316,8 +322,8 @@ int main(int argc, char **argv)
 
 /*** TO BE DONE START ***/
 	gai_rv = getaddrinfo(NULL,argv[1],&gai_hints,&server_addrinfo);
-		if(gai_rv != 0) 
-			fail_errno("getaddrinfo() failed\n");
+		if(gai_rv != 0)
+			fail(gai_strerror(gai_rv));
 
 	server_socket=socket(server_addrinfo->ai_family,server_addrinfo->ai_socktype,server_addrinfo->ai_protocol);
 		if(server_socket == -1) 
@@ -326,7 +332,7 @@ int main(int argc, char **argv)
 	if(bind(server_socket,server_addrinfo->ai_addr,server_addrinfo->ai_addrlen) < 0) 
 		fail_errno("bind() failed");
 
-	if(listen(server_socket,30) < 0)
+	if(listen(server_socket,128) < 0)
 		fail_errno("listen() failed");
 /*** TO BE DONE END ***/
 

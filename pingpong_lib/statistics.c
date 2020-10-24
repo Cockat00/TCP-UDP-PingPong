@@ -33,8 +33,7 @@ double timespec_delta2milliseconds(struct timespec *last,
 double sec_to_ms = ((double)(last->tv_sec - previous->tv_sec) * (double)1000);
 double ns_to_ms = ((double)(last->tv_nsec - previous->tv_nsec) / (double)1000000);
 
-return (sec_to_ms + ns_to_ms);
-
+return (double)(sec_to_ms + ns_to_ms);
 /*** TO BE DONE END ***/
 
 }

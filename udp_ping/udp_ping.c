@@ -52,7 +52,7 @@ double do_ping(size_t msg_size, int msg_no, char message[msg_size], int ping_soc
 
 	/*** Send the message through the socket (non blocking mode) ***/
 /*** TO BE DONE START ***/
-	sent_bytes = sendto(ping_socket,&message,msg_size,MSG_DONTWAIT,NULL,0);
+	sent_bytes = send(ping_socket,message,msg_size,MSG_DONTWAIT);
 		if(sent_bytes < 0)
 			fail_errno("Could not send the message");
 /*** TO BE DONE END ***/
@@ -60,17 +60,15 @@ double do_ping(size_t msg_size, int msg_no, char message[msg_size], int ping_soc
 	/*** Receive answer through the socket (non blocking mode, with timeout) ***/
 /*** TO BE DONE START ***/
 	struct timeval timeout_udp;
-	timeout_udp.tv_sec=UDP_TIMEOUT;
-	timeout_udp.tv_usec=0;
+	timeout_udp.tv_sec=0;
+	timeout_udp.tv_usec=timeout;
 
-	//TODO _1: Check if setsockopt() is ok
-	if(setsockopt(ping_socket,SOL_SOCKET,SO_RCVTIMEO,(const char*)&timeout_udp,sizeof(struct timeval)) < 0)
+	if(setsockopt(ping_socket,SOL_SOCKET,SO_RCVTIMEO,&timeout_udp,sizeof(struct timeval)) < 0)
 		fail_errno("Couldn't set socket options");
 
-	//TODO _2: Fix recv/recvfrom EAGAIN error
-	recv_bytes = recv(ping_socket,&answer_buffer,msg_size,MSG_DONTWAIT);
-	if(recv_bytes < 0)
-		fail_errno("Could not receive answer through the socket");
+	recv_bytes = recv(ping_socket,answer_buffer,sizeof(answer_buffer),MSG_DONTWAIT);
+		if(recv_bytes == -1)
+			recv_errno = errno;
 /*** TO BE DONE END ***/
 
 	/*** Store the current time in recv_time ***/
@@ -133,8 +131,7 @@ int prepare_udp_socket(char *pong_addr, char *pong_port)
 
     /*** change socket behavior to NONBLOCKING ***/
 /*** TO BE DONE START ***/
-	int fc_res = fcntl(ping_socket,F_SETFL,O_NONBLOCK);
-	if(fc_res < 0)
+	if(fcntl(ping_socket,F_SETFL,O_NONBLOCK) == -1)
 		fail_errno("Could not set the socket to NONBLOCKING");
 /*** TO BE DONE END ***/
 

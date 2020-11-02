@@ -50,7 +50,7 @@ double do_ping(size_t msg_size, int msg_no, char message[msg_size], int tcp_sock
 
     /*** Send the message through the socket (blocking)  ***/
 /*** TO BE DONE START ***/
-	sent_bytes = send(tcp_socket,message,msg_size,0);
+	sent_bytes = blocking_write_all(tcp_socket,message,msg_size);
 	if(sent_bytes == -1)
 		fail_errno("Error sending data");
        
@@ -79,7 +79,7 @@ double do_ping(size_t msg_size, int msg_no, char message[msg_size], int tcp_sock
 
 
 
-
+ 
 int main(int argc, char **argv)
 {
 	struct addrinfo gai_hints, *server_addrinfo;
@@ -145,7 +145,7 @@ int main(int argc, char **argv)
 
     /*** Write the request on socket ***/
 /*** TO BE DONE START ***/
-	nr = blocking_write_all(tcp_socket, request, strlen(request));
+	nr = write(tcp_socket, request, strlen(request));
 		if (nr < 0)
 		fail_errno("TCP Ping could not send request to Pong server");
 /*** TO BE DONE END ***/

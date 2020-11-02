@@ -93,7 +93,17 @@ void print_statistics(FILE * outf, const char *name, int repeats,
 	fprintf(outf, "RTT histogram:\n");
 
 /*** TO BE DONE START ***/
-
+//Calcolatrice BC
+ns = h_min;
+	for( j = 0; j < N_HISTOGRAM_ITEMS ; j++ )
+	{
+		fprintf(outf,"%lg %d\n", ns, histogram[j]);
+		ns += h_incr;
+	}
+	fprintf(outf,"\n");
+	
+	if( rtt[median] > 0.0 )
+		fprintf(outf, "   median Throughput : %lg KB/s", 2.0 * (double)(msg_sz) / rtt[median]);
 
 /*** TO BE DONE END ***/
 

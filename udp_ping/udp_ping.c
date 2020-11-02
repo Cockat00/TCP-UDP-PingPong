@@ -52,7 +52,7 @@ double do_ping(size_t msg_size, int msg_no, char message[msg_size], int ping_soc
 
 	/*** Send the message through the socket (non blocking mode) ***/
 /*** TO BE DONE START ***/
-	sent_bytes = send(ping_socket,message,msg_size,MSG_DONTWAIT);
+	sent_bytes = nonblocking_write_all(ping_socket,message,msg_size);
 		if(sent_bytes < 0)
 			fail_errno("Could not send the message");
 /*** TO BE DONE END ***/

@@ -38,6 +38,11 @@ double do_ping(size_t msg_size, int msg_no, char message[msg_size], int ping_soc
 
     /*** write msg_no at the beginning of the message buffer ***/
 /*** TO BE DONE START ***/
+
+	/*Questa inizializzazione si è rivelata necessaria
+	  per sopprimere alcuni errori che portano a memory leak*/
+	for(int i = 0; i<msg_size; ++i) answer_buffer[i] = '\0';
+
 	 if(sprintf(message,"%d\n",msg_no) < 0)
         	fail_errno("Can't write msg_no on the buffer");
 /*** TO BE DONE END ***/
@@ -52,9 +57,10 @@ double do_ping(size_t msg_size, int msg_no, char message[msg_size], int ping_soc
 
 	/*** Send the message through the socket (non blocking mode) ***/
 /*** TO BE DONE START ***/
-	sent_bytes = nonblocking_write_all(ping_socket,message,msg_size);
+	sent_bytes = send(ping_socket,message,msg_size,MSG_DONTWAIT);
 		if(sent_bytes < 0)
 			fail_errno("Could not send the message");
+		if(sent_bytes == 0) break;
 /*** TO BE DONE END ***/
 
 	/*** Receive answer through the socket (non blocking mode, with timeout) ***/
@@ -67,8 +73,12 @@ double do_ping(size_t msg_size, int msg_no, char message[msg_size], int ping_soc
 		fail_errno("Couldn't set socket options");
 
 	recv_bytes = recv(ping_socket,answer_buffer,sizeof(answer_buffer),MSG_DONTWAIT);
-		if(recv_bytes == -1)
-			recv_errno = errno;
+		if(recv_bytes == -1){
+			if(errno==EAGAIN || errno==EWOULDBLOCK)
+				recv_errno = errno;
+			else
+				fail_errno("recv() failed");
+		}
 /*** TO BE DONE END ***/
 
 	/*** Store the current time in recv_time ***/
@@ -109,7 +119,6 @@ double do_ping(size_t msg_size, int msg_no, char message[msg_size], int ping_soc
 
 	return roundtrip_time_ms;
 }
-
 
 
 int prepare_udp_socket(char *pong_addr, char *pong_port)
@@ -226,9 +235,9 @@ int main(int argc, char *argv[])
 
     /*** Write the request on the TCP socket ***/
 /** TO BE DONE START ***/
-	nr = blocking_write_all(ask_socket,&request,strlen(request));
+	nr = write(ask_socket,&request,strlen(request));
 	if(nr < 0)
-		fail_errno("UDP Pinc could not send request to Pong server");
+		fail_errno("UDP Ping could not send request to Pong server");
 /*** TO BE DONE END ***/
 
 	nr = read(ask_socket, answer, sizeof(answer));
@@ -238,9 +247,9 @@ int main(int argc, char *argv[])
 		--nr;
 	answer[nr] = 0;
 
-    /*** Check if the answer is OK, and fail if it is not ***/
+   /*** Check if the answer is OK, and fail if it is not ***/
 /*** TO BE DONE START ***/
-	char *ok_msg="OK";
+	char *ok_msg = "OK";
 	if(strncmp(ok_msg,answer,strlen(ok_msg)) != 0){
 		fail_errno(" ... Pong server disagreed :-(\n");
 	}

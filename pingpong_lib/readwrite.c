@@ -81,7 +81,6 @@ ssize_t nonblocking_write_all(int fd, const void *ptr, size_t n)
 		}
 		n_left -= n_written;
 		ptr += n_written;
-
 /*** TO BE DONE END ***/
 
 	}

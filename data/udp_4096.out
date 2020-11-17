@@ -1,0 +1,489 @@
+UDP Ping trying to connect to server webdev.dibris.unige.it (130.251.61.30) on TCP port 1491
+ ... connected to Pong server: asking for 151 repetitions of 4096 _bytes UDP messages
+ ... Pong server agreed to ping-pong using port 62831 :-)
+ ... about to connect socket 3 to IP address 130.251.61.30, port 62831
+ ... sending message 1
+Round trip time was 108.320 milliseconds in repetition 1
+ ... sending message 2
+Round trip time was 73.256 milliseconds in repetition 2
+ ... sending message 3
+Round trip time was 74.748 milliseconds in repetition 3
+ ... sending message 4
+Round trip time was 71.671 milliseconds in repetition 4
+ ... sending message 5
+Round trip time was 71.702 milliseconds in repetition 5
+ ... sending message 6
+Round trip time was 79.978 milliseconds in repetition 6
+ ... sending message 7
+Round trip time was 72.057 milliseconds in repetition 7
+ ... sending message 8
+Round trip time was 75.734 milliseconds in repetition 8
+ ... sending message 9
+Round trip time was 68.846 milliseconds in repetition 9
+ ... sending message 10
+Round trip time was 71.352 milliseconds in repetition 10
+ ... sending message 11
+Round trip time was 71.922 milliseconds in repetition 11
+ ... sending message 12
+Round trip time was 71.899 milliseconds in repetition 12
+ ... sending message 13
+Round trip time was 76.169 milliseconds in repetition 13
+ ... sending message 14
+Round trip time was 63.970 milliseconds in repetition 14
+ ... sending message 15
+Round trip time was 75.725 milliseconds in repetition 15
+ ... sending message 16
+Round trip time was 80.362 milliseconds in repetition 16
+ ... sending message 17
+Round trip time was 79.848 milliseconds in repetition 17
+ ... sending message 18
+Round trip time was 63.967 milliseconds in repetition 18
+ ... sending message 19
+Round trip time was 79.633 milliseconds in repetition 19
+ ... sending message 20
+Round trip time was 68.434 milliseconds in repetition 20
+ ... sending message 21
+Round trip time was 67.787 milliseconds in repetition 21
+ ... sending message 22
+Round trip time was 63.713 milliseconds in repetition 22
+ ... sending message 23
+Round trip time was 68.319 milliseconds in repetition 23
+ ... sending message 24
+Round trip time was 86.199 milliseconds in repetition 24
+ ... sending message 25
+Round trip time was 73.852 milliseconds in repetition 25
+ ... sending message 26
+Round trip time was 79.890 milliseconds in repetition 26
+ ... sending message 27
+Round trip time was 60.125 milliseconds in repetition 27
+ ... sending message 28
+Round trip time was 87.959 milliseconds in repetition 28
+ ... sending message 29
+Round trip time was 79.746 milliseconds in repetition 29
+ ... sending message 30
+Round trip time was 68.508 milliseconds in repetition 30
+ ... sending message 31
+Round trip time was 71.891 milliseconds in repetition 31
+ ... sending message 32
+Round trip time was 76.578 milliseconds in repetition 32
+ ... sending message 33
+Round trip time was 75.554 milliseconds in repetition 33
+ ... sending message 34
+Round trip time was 67.892 milliseconds in repetition 34
+ ... sending message 35
+Round trip time was 59.871 milliseconds in repetition 35
+ ... sending message 36
+Round trip time was 60.083 milliseconds in repetition 36
+ ... sending message 37
+Round trip time was 71.986 milliseconds in repetition 37
+ ... sending message 38
+Round trip time was 79.439 milliseconds in repetition 38
+ ... sending message 39
+Round trip time was 68.406 milliseconds in repetition 39
+ ... sending message 40
+Round trip time was 80.361 milliseconds in repetition 40
+ ... sending message 41
+Round trip time was 83.340 milliseconds in repetition 41
+ ... sending message 42
+Round trip time was 67.944 milliseconds in repetition 42
+ ... sending message 43
+Round trip time was 80.002 milliseconds in repetition 43
+ ... sending message 44
+Round trip time was 67.853 milliseconds in repetition 44
+ ... sending message 45
+Round trip time was 64.096 milliseconds in repetition 45
+ ... sending message 46
+Round trip time was 88.064 milliseconds in repetition 46
+ ... sending message 47
+Round trip time was 104.067 milliseconds in repetition 47
+ ... sending message 48
+Round trip time was 78.212 milliseconds in repetition 48
+ ... sending message 49
+Round trip time was 77.580 milliseconds in repetition 49
+ ... sending message 50
+Round trip time was 80.061 milliseconds in repetition 50
+ ... sending message 51
+Round trip time was 68.110 milliseconds in repetition 51
+ ... sending message 52
+Round trip time was 72.876 milliseconds in repetition 52
+ ... sending message 53
+Round trip time was 78.714 milliseconds in repetition 53
+ ... sending message 54
+Round trip time was 72.024 milliseconds in repetition 54
+ ... sending message 55
+Round trip time was 67.945 milliseconds in repetition 55
+ ... sending message 56
+Round trip time was 79.998 milliseconds in repetition 56
+ ... sending message 57
+Round trip time was 67.645 milliseconds in repetition 57
+ ... sending message 58
+Round trip time was 60.438 milliseconds in repetition 58
+ ... sending message 59
+Round trip time was 59.694 milliseconds in repetition 59
+ ... sending message 60
+Round trip time was 60.175 milliseconds in repetition 60
+ ... sending message 61
+Round trip time was 71.842 milliseconds in repetition 61
+ ... sending message 62
+Round trip time was 71.886 milliseconds in repetition 62
+ ... sending message 63
+Round trip time was 76.122 milliseconds in repetition 63
+ ... sending message 64
+Round trip time was 71.684 milliseconds in repetition 64
+ ... sending message 65
+Round trip time was 80.428 milliseconds in repetition 65
+ ... sending message 66
+Round trip time was 67.837 milliseconds in repetition 66
+ ... sending message 67
+Round trip time was 79.789 milliseconds in repetition 67
+ ... sending message 68
+Round trip time was 63.762 milliseconds in repetition 68
+ ... sending message 69
+Round trip time was 76.132 milliseconds in repetition 69
+ ... sending message 70
+Round trip time was 71.918 milliseconds in repetition 70
+ ... sending message 71
+Round trip time was 76.148 milliseconds in repetition 71
+ ... sending message 72
+Round trip time was 103.676 milliseconds in repetition 72
+ ... sending message 73
+Round trip time was 64.876 milliseconds in repetition 73
+ ... sending message 74
+Round trip time was 75.476 milliseconds in repetition 74
+ ... sending message 75
+Round trip time was 60.176 milliseconds in repetition 75
+ ... sending message 76
+Round trip time was 133.576 milliseconds in repetition 76
+ ... sending message 77
+Round trip time was 78.291 milliseconds in repetition 77
+ ... sending message 78
+Round trip time was 75.946 milliseconds in repetition 78
+ ... sending message 79
+Round trip time was 63.547 milliseconds in repetition 79
+ ... sending message 80
+Round trip time was 104.037 milliseconds in repetition 80
+ ... sending message 81
+Round trip time was 84.358 milliseconds in repetition 81
+ ... sending message 82
+Round trip time was 79.634 milliseconds in repetition 82
+ ... sending message 83
+Round trip time was 63.935 milliseconds in repetition 83
+ ... sending message 84
+Round trip time was 68.263 milliseconds in repetition 84
+ ... sending message 85
+Round trip time was 71.757 milliseconds in repetition 85
+ ... sending message 86
+Round trip time was 84.358 milliseconds in repetition 86
+ ... sending message 87
+Round trip time was 63.687 milliseconds in repetition 87
+ ... sending message 88
+Round trip time was 72.054 milliseconds in repetition 88
+ ... sending message 89
+Round trip time was 75.747 milliseconds in repetition 89
+ ... sending message 90
+Round trip time was 67.968 milliseconds in repetition 90
+ ... sending message 91
+Round trip time was 72.574 milliseconds in repetition 91
+ ... sending message 92
+Round trip time was 69.741 milliseconds in repetition 92
+ ... sending message 93
+Round trip time was 86.892 milliseconds in repetition 93
+ ... sending message 94
+Round trip time was 74.906 milliseconds in repetition 94
+ ... sending message 95
+Round trip time was 83.846 milliseconds in repetition 95
+ ... sending message 96
+Round trip time was 64.211 milliseconds in repetition 96
+ ... sending message 97
+Round trip time was 72.437 milliseconds in repetition 97
+ ... sending message 98
+Round trip time was 75.500 milliseconds in repetition 98
+ ... sending message 99
+Round trip time was 64.195 milliseconds in repetition 99
+ ... sending message 100
+Round trip time was 84.112 milliseconds in repetition 100
+ ... sending message 101
+Round trip time was 71.950 milliseconds in repetition 101
+ ... sending message 102
+Round trip time was 67.748 milliseconds in repetition 102
+ ... sending message 103
+Round trip time was 63.944 milliseconds in repetition 103
+ ... sending message 104
+Round trip time was 82.850 milliseconds in repetition 104
+ ... sending message 105
+Round trip time was 85.191 milliseconds in repetition 105
+ ... sending message 106
+Round trip time was 71.928 milliseconds in repetition 106
+ ... sending message 107
+Round trip time was 195.956 milliseconds in repetition 107
+ ... sending message 108
+Round trip time was 72.144 milliseconds in repetition 108
+ ... sending message 109
+Round trip time was 64.148 milliseconds in repetition 109
+ ... sending message 110
+Round trip time was 71.617 milliseconds in repetition 110
+ ... sending message 111
+Round trip time was 88.328 milliseconds in repetition 111
+ ... sending message 112
+Round trip time was 76.009 milliseconds in repetition 112
+ ... sending message 113
+Round trip time was 72.200 milliseconds in repetition 113
+ ... sending message 114
+Round trip time was 96.879 milliseconds in repetition 114
+ ... sending message 115
+Round trip time was 74.407 milliseconds in repetition 115
+ ... sending message 116
+Round trip time was 74.363 milliseconds in repetition 116
+ ... sending message 117
+Round trip time was 65.899 milliseconds in repetition 117
+ ... sending message 118
+Round trip time was 86.509 milliseconds in repetition 118
+ ... sending message 119
+Round trip time was 73.638 milliseconds in repetition 119
+ ... sending message 120
+Round trip time was 79.930 milliseconds in repetition 120
+ ... sending message 121
+Round trip time was 83.710 milliseconds in repetition 121
+ ... sending message 122
+Round trip time was 80.081 milliseconds in repetition 122
+ ... sending message 123
+Round trip time was 76.020 milliseconds in repetition 123
+ ... sending message 124
+Round trip time was 88.080 milliseconds in repetition 124
+ ... sending message 125
+Round trip time was 72.063 milliseconds in repetition 125
+ ... sending message 126
+Round trip time was 83.816 milliseconds in repetition 126
+ ... sending message 127
+Round trip time was 67.793 milliseconds in repetition 127
+ ... sending message 128
+Round trip time was 84.222 milliseconds in repetition 128
+ ... sending message 129
+Round trip time was 72.107 milliseconds in repetition 129
+ ... sending message 130
+Round trip time was 79.501 milliseconds in repetition 130
+ ... sending message 131
+Round trip time was 80.220 milliseconds in repetition 131
+ ... sending message 132
+Round trip time was 64.014 milliseconds in repetition 132
+ ... sending message 133
+Round trip time was 75.761 milliseconds in repetition 133
+ ... sending message 134
+Round trip time was 84.319 milliseconds in repetition 134
+ ... sending message 135
+Round trip time was 72.045 milliseconds in repetition 135
+ ... sending message 136
+Round trip time was 67.803 milliseconds in repetition 136
+ ... sending message 137
+Round trip time was 110.910 milliseconds in repetition 137
+ ... sending message 138
+Round trip time was 85.074 milliseconds in repetition 138
+ ... sending message 139
+Round trip time was 88.770 milliseconds in repetition 139
+ ... sending message 140
+Round trip time was 63.211 milliseconds in repetition 140
+ ... sending message 141
+Round trip time was 95.873 milliseconds in repetition 141
+ ... sending message 142
+Round trip time was 76.008 milliseconds in repetition 142
+ ... sending message 143
+Round trip time was 64.057 milliseconds in repetition 143
+ ... sending message 144
+Round trip time was 71.652 milliseconds in repetition 144
+ ... sending message 145
+Round trip time was 80.296 milliseconds in repetition 145
+ ... sending message 146
+Round trip time was 75.818 milliseconds in repetition 146
+ ... sending message 147
+Round trip time was 68.397 milliseconds in repetition 147
+ ... sending message 148
+Round trip time was 67.445 milliseconds in repetition 148
+ ... sending message 149
+Round trip time was 80.179 milliseconds in repetition 149
+ ... sending message 150
+Round trip time was 79.926 milliseconds in repetition 150
+ ... sending message 151
+Round trip time was 84.300 milliseconds in repetition 151
+
+ ... clock resolution was 1e-06 h_min=59.6944,  h_max=195.956, h_incr=6.8131
+     rtt[0]=59.6944
+     rtt[1]=59.8709
+     rtt[2]=60.0825
+     rtt[3]=60.1254
+     rtt[4]=60.1745
+     rtt[5]=60.1756
+     rtt[6]=60.4376
+     rtt[7]=63.2106
+     rtt[8]=63.5468
+     rtt[9]=63.6867
+     rtt[10]=63.7129
+     rtt[11]=63.7624
+     rtt[12]=63.935
+     rtt[13]=63.944
+     rtt[14]=63.9666
+     rtt[15]=63.9696
+     rtt[16]=64.0137
+     rtt[17]=64.0569
+     rtt[18]=64.0964
+     rtt[19]=64.1482
+     rtt[20]=64.1954
+     rtt[21]=64.2115
+     rtt[22]=64.876
+     rtt[23]=65.8989
+     rtt[24]=67.4446
+     rtt[25]=67.6447
+     rtt[26]=67.7476
+     rtt[27]=67.7871
+     rtt[28]=67.7927
+     rtt[29]=67.8032
+     rtt[30]=67.8369
+     rtt[31]=67.8533
+     rtt[32]=67.8922
+     rtt[33]=67.9439
+     rtt[34]=67.9445
+     rtt[35]=67.9685
+     rtt[36]=68.1098
+     rtt[37]=68.2626
+     rtt[38]=68.319
+     rtt[39]=68.397
+     rtt[40]=68.4056
+     rtt[41]=68.4338
+     rtt[42]=68.5077
+     rtt[43]=68.8465
+     rtt[44]=69.7412
+     rtt[45]=71.3519
+     rtt[46]=71.6166
+     rtt[47]=71.652
+     rtt[48]=71.6708
+     rtt[49]=71.6843
+     rtt[50]=71.7022
+     rtt[51]=71.7572
+     rtt[52]=71.8415
+     rtt[53]=71.8858
+     rtt[54]=71.8905
+     rtt[55]=71.8993
+     rtt[56]=71.9184
+     rtt[57]=71.9225
+     rtt[58]=71.9275
+     rtt[59]=71.9495
+     rtt[60]=71.9862
+     rtt[61]=72.0236
+     rtt[62]=72.0448
+     rtt[63]=72.054
+     rtt[64]=72.057
+     rtt[65]=72.0635
+     rtt[66]=72.1074
+     rtt[67]=72.144
+     rtt[68]=72.2001
+     rtt[69]=72.4373
+     rtt[70]=72.5743
+     rtt[71]=72.876
+     rtt[72]=73.2563
+     rtt[73]=73.6381
+     rtt[74]=73.8523
+     rtt[75]=74.3634
+     rtt[76]=74.4071
+     rtt[77]=74.7478
+     rtt[78]=74.9058
+     rtt[79]=75.4757
+     rtt[80]=75.5005
+     rtt[81]=75.5544
+     rtt[82]=75.7248
+     rtt[83]=75.7335
+     rtt[84]=75.7468
+     rtt[85]=75.7609
+     rtt[86]=75.8179
+     rtt[87]=75.9463
+     rtt[88]=76.0078
+     rtt[89]=76.0093
+     rtt[90]=76.0199
+     rtt[91]=76.1224
+     rtt[92]=76.1315
+     rtt[93]=76.1478
+     rtt[94]=76.1689
+     rtt[95]=76.5784
+     rtt[96]=77.5804
+     rtt[97]=78.2115
+     rtt[98]=78.291
+     rtt[99]=78.7137
+     rtt[100]=79.4391
+     rtt[101]=79.5008
+     rtt[102]=79.6333
+     rtt[103]=79.6336
+     rtt[104]=79.7463
+     rtt[105]=79.7893
+     rtt[106]=79.848
+     rtt[107]=79.8902
+     rtt[108]=79.9264
+     rtt[109]=79.9303
+     rtt[110]=79.9783
+     rtt[111]=79.9983
+     rtt[112]=80.0023
+     rtt[113]=80.0611
+     rtt[114]=80.0806
+     rtt[115]=80.1794
+     rtt[116]=80.2202
+     rtt[117]=80.2961
+     rtt[118]=80.3605
+     rtt[119]=80.3619
+     rtt[120]=80.4279
+     rtt[121]=82.8502
+     rtt[122]=83.3396
+     rtt[123]=83.7103
+     rtt[124]=83.8158
+     rtt[125]=83.8465
+     rtt[126]=84.1119
+     rtt[127]=84.2218
+     rtt[128]=84.3002
+     rtt[129]=84.319
+     rtt[130]=84.358
+     rtt[131]=84.3585
+     rtt[132]=85.074
+     rtt[133]=85.1913
+     rtt[134]=86.1986
+     rtt[135]=86.5086
+     rtt[136]=86.8921
+     rtt[137]=87.9591
+     rtt[138]=88.0643
+     rtt[139]=88.0803
+     rtt[140]=88.328
+     rtt[141]=88.7704
+     rtt[142]=95.8734
+     rtt[143]=96.8792
+     rtt[144]=103.676
+     rtt[145]=104.037
+     rtt[146]=104.067
+     rtt[147]=108.32
+     rtt[148]=110.91
+     rtt[149]=133.576
+     rtt[150]=195.956
+
+UDP Ping:  Statistics over 151 repetitions of 4096 byte messages
+
+RTT : percentile 10: 63.9696, median: 74.3634, percentile 90: 86.5086, average: 76.3776, variance: 209.235
+
+RTT histogram:
+59.6944 7
+66.5075 38
+73.3206 51
+80.1337 27
+86.9468 19
+93.7599 2
+100.573 1
+107.386 3
+114.199 1
+121.012 0
+127.825 0
+134.638 1
+141.452 0
+148.265 0
+155.078 0
+161.891 0
+168.704 0
+175.517 0
+182.33 0
+189.143 0
+195.956 1
+
+   median Throughput : 110.162 KB/s   overall Throughput : 107.257 KB/s
+

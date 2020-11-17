@@ -20,6 +20,7 @@ declare -a dato_max=($(tail -n 1 ../data/${protocol_name}_throughput.dat))
 
 dim_min_byte=${dato_min[0]}
 dim_max_byte=${dato_max[0]}
+
 throughput_min=$(sed -e 's/[eE][+-]*/\*10\^/' <<< ${dato_min[2]})
 throughput_max=$(sed -e 's/[eE][+-]*/\*10\^/' <<< ${dato_max[2]})
 

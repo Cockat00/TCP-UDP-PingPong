@@ -1,6 +1,6 @@
 #CC = clang
-CFLAGS = -Ipingpong_lib
-#CFLAGS = -DDEBUG -g3 -O0 -Ipingpong_lib
+#CFLAGS = -Ipingpong_lib
+CFLAGS = -ggdb -DDEBUG -g3 -O0 -Ipingpong_lib
 
 BIN_DIR = bin
 DATA_DIR = data

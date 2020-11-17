@@ -73,9 +73,9 @@ ssize_t nonblocking_write_all(int fd, const void *ptr, size_t n)
 /*** TO BE DONE START ***/
 		if (n_written < 0) {
 			if (n_left == n)
-				return -1; /* nothing has been written */
+				return -1;
 			else
-				continue; /* we have written something */
+				continue;
 		} else if (n_written == 0) {
                         continue;
 		}

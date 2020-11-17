@@ -53,7 +53,6 @@ double do_ping(size_t msg_size, int msg_no, char message[msg_size], int tcp_sock
 	sent_bytes = blocking_write_all(tcp_socket,message,msg_size);
 	if(sent_bytes == -1)
 		fail_errno("Error sending data");
-       
 /*** TO BE DONE END ***/
 
     /*** Receive answer through the socket (blocking) ***/
@@ -125,12 +124,16 @@ int main(int argc, char **argv)
     /*** create a new TCP socket and connect it with the server ***/
 /*** TO BE DONE START ***/
 	tcp_socket=socket(server_addrinfo->ai_family,server_addrinfo->ai_socktype,server_addrinfo->ai_protocol);
-	if(tcp_socket == -1)
+	if(tcp_socket == -1){
+		freeaddrinfo(server_addrinfo);
 		fail_errno("socket() failed");
+	}
 
-	if(connect(tcp_socket,server_addrinfo->ai_addr,server_addrinfo->ai_addrlen) == -1)
+	if(connect(tcp_socket,server_addrinfo->ai_addr,server_addrinfo->ai_addrlen) == -1){
+		close(tcp_socket);
+		freeaddrinfo(server_addrinfo);
 		fail_errno("connect() failed");
-
+	}
 /*** TO BE DONE END ***/
 
 	freeaddrinfo(server_addrinfo);
@@ -158,7 +161,9 @@ int main(int argc, char **argv)
 /*** TO BE DONE START ***/
 	char *ok_msg = "OK\n";
 	if(strncmp(ok_msg,answer,strlen(ok_msg)) != 0){	
-		fail_errno(" ... Pong server disagreed :-(\n");
+		if(strncmp("ERROR\n",answer,strlen("ERROR\n")) == 0) 
+			fail_errno(" ... Pong server disagreed :-(\n");
+		else fail_errno("Unknown error type\n");
 	}
 /*** TO BE DONE END ***/
 
@@ -180,7 +185,7 @@ int main(int argc, char **argv)
 		if (clock_getres(CLOCK_TYPE, &resolution))
 			fail_errno("TCP Ping could not get timer resolution");
 		print_statistics(stdout, "TCP Ping: ", norep, ping_times, msgsz, timespec_delta2milliseconds(&resolution, &zero));
-	}
+	;}
 
 	shutdown(tcp_socket, SHUT_RDWR);
 	close(tcp_socket);

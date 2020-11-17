@@ -40,7 +40,7 @@ double do_ping(size_t msg_size, int msg_no, char message[msg_size], int ping_soc
 /*** TO BE DONE START ***/
 
 	/*Questa inizializzazione si è rivelata necessaria
-	  per sopprimere alcuni errori che portano a memory leak*/
+	  per sopprimere alcuni errori segnalati da valgrind */
 	for(int i = 0; i<msg_size; ++i) answer_buffer[i] = '\0';
 
 	 if(sprintf(message,"%d\n",msg_no) < 0)
@@ -60,7 +60,7 @@ double do_ping(size_t msg_size, int msg_no, char message[msg_size], int ping_soc
 	sent_bytes = send(ping_socket,message,msg_size,MSG_DONTWAIT);
 		if(sent_bytes < 0)
 			fail_errno("Could not send the message");
-		if(sent_bytes == 0) break;
+		//if(sent_bytes == 0) break;
 /*** TO BE DONE END ***/
 
 	/*** Receive answer through the socket (non blocking mode, with timeout) ***/
@@ -167,7 +167,6 @@ int prepare_udp_socket(char *pong_addr, char *pong_port)
 /*** TO BE DONE START ***/
 	if(connect(ping_socket,pong_addrinfo->ai_addr,pong_addrinfo->ai_addrlen) < 0)
 		fail_errno("Could not connect ping_socket with the server");
-
 /*** TO BE DONE END ***/
 
 	freeaddrinfo(pong_addrinfo);
@@ -249,10 +248,8 @@ int main(int argc, char *argv[])
 
    /*** Check if the answer is OK, and fail if it is not ***/
 /*** TO BE DONE START ***/
-	char *ok_msg = "OK";
-	if(strncmp(ok_msg,answer,strlen(ok_msg)) != 0){
+	if(strncmp("ERROR\n",answer,strlen("ERROR\n")) == 0)
 		fail_errno(" ... Pong server disagreed :-(\n");
-	}
 /*** TO BE DONE END ***/
 
     /*** else ***/
